@@ -7,7 +7,15 @@ import hw2.models.User;
 import java.util.List;
 
 public class UserService {
-    private final UserDAO userDAO = new UserDAO();
+    private final UserDAO userDAO;
+
+    public UserService() {
+        this.userDAO = new UserDAO();
+    }
+
+    public UserService(UserDAO userDAO) {
+        this.userDAO = userDAO;
+    }
 
     public User findUser(int id) {
         return userDAO.findById(id);
