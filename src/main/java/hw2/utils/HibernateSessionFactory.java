@@ -24,4 +24,10 @@ public class HibernateSessionFactory {
     public static Session getSession() {
         return getSessionFactory().openSession();
     }
+
+    public static void shutdown() {
+        if (sessionFactory != null) {
+            sessionFactory.close();
+        }
+    }
 }
